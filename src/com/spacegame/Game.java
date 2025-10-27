@@ -4,6 +4,7 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
 import javafx.animation.AnimationTimer;
+import javafx.scene.paint.Color;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -11,11 +12,11 @@ import java.util.Set;
 public class Game {
 
     private GraphicsContext gc; // This lets us draw on the screen
-    private Scene scene;        // This lets us handle keyboard input
+    private Scene scene;        // this lets us handle keyboard input
+    private Set<KeyCode> activeKeys; //stores which keys are being pressed
+    private boolean isRunning = true; // keeps the game loop going
 
-    private Set<KeyCode> activeKeys; // This stores which keys are being pressed
-
-    private boolean isRunning = true; // Keeps the game loop going
+    private Player player; //inside the class
 
     public Game(GraphicsContext gc, Scene scene) {
         this.gc = gc;
@@ -32,6 +33,7 @@ public class Game {
     }
 
     private void startGameLoop() {
+        player = new Player(380, 500); // roughly center bottom of the screen
         AnimationTimer timer = new AnimationTimer() {
             @Override
             public void handle(long now) {
@@ -43,17 +45,25 @@ public class Game {
     }
 
     private void update() {
-        // Game logic goes here (movement, collisions, etc.)
+        // simple player movement
         if (activeKeys.contains(KeyCode.LEFT)) {
-            System.out.println("Moving left");
+            player.moveLeft();
         }
         if (activeKeys.contains(KeyCode.RIGHT)) {
-            System.out.println("Moving right");
+            player.moveRight();
         }
     }
 
     private void render() {
-        gc.clearRect(0, 0, 800, 600);
-        gc.fillText("Game Running...", 350, 300);
+        // Clear the screen
+        gc.setFill(Color.BLACK);
+        gc.fillRect(0, 0, 800, 600);
+
+        // Draw player
+        player.draw(gc);
+
+        // Text info.
+        gc.setFill(Color.WHITE);
+        gc.fillText("Use arrow keys to move", 330, 40);
     }
 }
