@@ -49,7 +49,7 @@ This is a learning project to explore **game loops**, **rendering**, **keyboard 
 
 - **Language:** Java
 - **Framework:** JavaFX
-- **IDE:** IntelliJ IDEA / VS Code
+- **IDE:** IntelliJ IDEA
 - **Version Control:** Git + GitHub
 
 ---
@@ -65,4 +65,4 @@ Iâ€™m building it step-by-step to understand how real-time games work in Java â€
 
 1. Clone the repository
    ```bash
-   git clone https://github.com/yourusername/space-shooter-java.git
+   git clone https://github.com/oldschoolmoron/space-shooter-java.git
