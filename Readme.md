@@ -65,4 +65,4 @@ Iâ€™m building it step-by-step to understand how real-time games work in Java â€
 
 1. Clone the repository
    ```bash
-   git clone https://github.com/oldschoolmoron/space-shooter-java.git
+   git clone https://github.com/oldschoolmoron/JavaFX-LibGDX-Game/
