@@ -14,7 +14,6 @@ public class Game {
     private GraphicsContext gc; // This lets us draw on the screen
     private Scene scene;        // this lets us handle keyboard input
     private Set<KeyCode> activeKeys; //stores which keys are being pressed
-    private boolean isRunning = true; // keeps the game loop going
 
     private Player player; //inside the class
 
@@ -43,16 +42,21 @@ public class Game {
         };
         timer.start();
     }
-
     private void update() {
-        // simple player movement
         if (activeKeys.contains(KeyCode.LEFT)) {
             player.moveLeft();
         }
         if (activeKeys.contains(KeyCode.RIGHT)) {
             player.moveRight();
         }
+        if (player.getX() < 0) {
+            player.moveRight(); // push back inside
+        }
+        if (player.getX() > 760) { // 800 - 40 (player width)
+            player.moveLeft(); // push back inside
+        }
     }
+
 
     private void render() {
         // Clear the screen
@@ -67,3 +71,5 @@ public class Game {
         gc.fillText("Use arrow keys to move", 330, 40);
     }
 }
+
+// TODO: Add enemies and bullets
