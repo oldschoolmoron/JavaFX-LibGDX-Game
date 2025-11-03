@@ -24,4 +24,32 @@ public class Enemy {
     public void update() {
         y += speed;
     }
+
+    // Draw the enemy
+    public void draw(GraphicsContext gc) {
+        gc.setFill(Color.RED);
+        gc.fillRect(x, y, width, height);
+    }
+
+    // Getters
+    public double getX() {
+        return x;
+    }
+
+    public double getY() {
+        return y;
+    }
+
+    public double getWidth() {
+        return width;
+    }
+
+    public double getHeight() {
+        return height;
+    }
+
+    // check if enemy goes off the screen
+    public boolean isOffScreen() {
+        return y > 600; // screen height from your Game.java
+    }
 }
