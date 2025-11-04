@@ -24,7 +24,9 @@ public class Enemy {
     public void update() {
         y += speed;
     }
-
+    public void setSpeed(double speed) {
+        this.speed = speed;
+    }
     // Draw the enemy
     public void draw(GraphicsContext gc) {
         gc.setFill(Color.RED);
