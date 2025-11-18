@@ -38,8 +38,8 @@ This is a learning project to explore **game loops**, **rendering**, **keyboard 
 ✅ Basic project setup  
 ✅ Working game loop (`AnimationTimer`)  
 ✅ Player rendering and movement  
-⬜ Add movement boundaries  
-⬜ Add enemies and bullets  
+✅ Add movement boundaries  
+✅ Add enemies and bullets  
 ⬜ Add collision detection  
 ⬜ Add score system
 
